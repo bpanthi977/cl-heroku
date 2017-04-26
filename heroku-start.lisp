@@ -1,3 +1,8 @@
+;; Register projects in local-projects folder 
+(defparameter *app-dir* (uiop:pathname-directory-pathname *load-pathname*))
+(push (merge-pathnames "local-projects/" *app-dir*) ql:*local-project-directories*)
+(ql:register-local-projects)
+
 ;; Load the libraries required  (here only hunchentoot)
 (ql:quickload :hunchentoot)
 
